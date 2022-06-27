@@ -6,6 +6,8 @@ import axios from "axios";
 import List from "./components/List/List";
 import Edit from "./components/Edit/Edit";
 
+export const ContactContext = React.createContext();
+
 const App = () => {
   const API = "http://localhost:8000/contacts";
 
@@ -40,32 +42,44 @@ const App = () => {
   // console.log(oneContact);
   return (
     <div>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <List
-                deleteContact={deleteContact}
-                contacts={contacts}
-                getContacts={getContacts}
-              />
-            }
-          />
-          <Route path="/add" element={<AddContact addContact={addContact} />} />
-          <Route
-            path="/edit/:id"
-            element={
-              <Edit
-                oneContact={oneContact}
-                getOneContact={getOneContact}
-                updateContact={updateContact}
-              />
-            }
-          />
-        </Routes>
-      </BrowserRouter>
+      <ContactContext.Provider
+        value={{
+          getContacts,
+          getOneContact,
+          addContact,
+          deleteContact,
+          updateContact,
+        }}>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <List
+                  deleteContact={deleteContact}
+                  contacts={contacts}
+                  getContacts={getContacts}
+                />
+              }
+            />
+            <Route
+              path="/add"
+              element={<AddContact addContact={addContact} />}
+            />
+            <Route
+              path="/edit/:id"
+              element={
+                <Edit
+                  oneContact={oneContact}
+                  getOneContact={getOneContact}
+                  updateContact={updateContact}
+                />
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </ContactContext.Provider>
     </div>
   );
 };

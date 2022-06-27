@@ -1,10 +1,22 @@
 {
   "contacts": [
     {
+      "name": "Александр",
+      "number": "+996550775677",
+      "email": "alexandr1970@mail.ru",
+      "id": 3
+    },
+    {
+      "name": "Виктор",
+      "number": "+996777124322",
+      "email": "victor544@yahoo.com",
+      "id": 4
+    },
+    {
       "name": "Василий",
-      "number": "+996777124354",
+      "number": "+996777124322",
       "email": "vasiliy1995@yahoo.com",
-      "id": 2
+      "id": 5
     }
   ]
 }

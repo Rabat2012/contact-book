@@ -1,9 +1,11 @@
 import { Box, Button, Container, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { ContactContext } from "../../App";
 import Loader from "../Loader/Loader";
 
-const Edit = ({ getOneContact, oneContact, updateContact }) => {
+const Edit = ({ oneContact }) => {
+  const { getOneContact, updateContact } = React.useContext(ContactContext);
   const params = useParams();
   const navigate = useNavigate();
 

@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
+import { ContactContext } from "../../App";
 import ProductCard from "../Card/Card";
 
-const List = ({ getContacts, contacts, deleteContact }) => {
+const List = ({ contacts }) => {
+  const { getContacts, deleteContact } = React.useContext(ContactContext);
   useEffect(() => {
     getContacts();
   }, []);
